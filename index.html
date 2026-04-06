@@ -4,94 +4,187 @@
 <meta charset="UTF-8">
 <title>Alka Gaur Foundation</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-body {
+
+/* GLOBAL */
+* {
   margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body {
   font-family:'Poppins',sans-serif;
   background:#0a0a0a;
   color:white;
   overflow-x:hidden;
 }
 
-/* NAV */
+/* SCROLL BAR */
+#progress-bar {
+  position:fixed;
+  top:0;
+  left:0;
+  height:4px;
+  width:0%;
+  background:linear-gradient(to right,#ff7a18,#ffb347);
+  z-index:2000;
+}
+
+/* NAVBAR */
 nav {
   position:fixed;
   width:100%;
-  padding:20px 50px;
+  padding:20px 8%;
   display:flex;
   justify-content:space-between;
+  align-items:center;
   background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(12px);
   z-index:1000;
+}
+
+nav h2 {
+  font-weight:700;
+  letter-spacing:2px;
 }
 
 nav a {
   color:white;
   text-decoration:none;
   margin:0 15px;
+  transition:0.3s;
+}
+
+nav a:hover {
+  color:#ffb347;
 }
 
 /* HERO */
 .hero {
   height:100vh;
-  background:url('https://images.unsplash.com/photo-children') center/cover no-repeat;
+  background:url('https://images.unsplash.com/photo-1593113630400-ea4288922497') center/cover no-repeat;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
+  padding:0 10%;
+}
+
+.hero-content {
+  max-width:800px;
 }
 
 .hero h1 {
-  font-size:60px;
+  font-size:64px;
+  margin-bottom:20px;
   background:linear-gradient(to right,#ff7a18,#ffb347);
   -webkit-background-clip:text;
   color:transparent;
 }
 
-/* SECTION */
-.section {
-  padding:100px 10%;
+.hero p {
+  font-size:18px;
+  margin-bottom:30px;
+  opacity:0.8;
 }
 
+.btn {
+  padding:15px 35px;
+  background:linear-gradient(to right,#ff7a18,#ffb347);
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.btn:hover {
+  transform:scale(1.05);
+}
+
+/* SECTION */
+.section {
+  padding:100px 8%;
+  text-align:center;
+}
+
+.section h2 {
+  font-size:36px;
+  margin-bottom:50px;
+}
+
+/* CARDS */
 .cards {
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:30px;
 }
 
 .card {
   background:rgba(255,255,255,0.05);
-  padding:30px;
+  padding:40px 20px;
   border-radius:20px;
   backdrop-filter:blur(10px);
-  transition:0.3s;
+  transition:0.4s;
 }
 
 .card:hover {
   transform:translateY(-10px);
 }
 
-/* COUNTER */
 .counter {
-  font-size:40px;
+  font-size:42px;
   color:#ffb347;
+  font-weight:600;
 }
 
-/* BUTTON */
-.btn {
-  padding:15px 30px;
+/* CTA */
+.cta {
   background:linear-gradient(to right,#ff7a18,#ffb347);
-  border:none;
-  border-radius:30px;
-  cursor:pointer;
+  padding:80px 20px;
+  text-align:center;
+}
+
+.cta h2 {
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.cta p {
+  margin-bottom:20px;
+}
+
+/* FOOTER */
+footer {
+  padding:40px;
+  text-align:center;
+  background:#000;
+  font-size:14px;
+  opacity:0.7;
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+  width:20px;
+  height:20px;
+  border:2px solid white;
+  border-radius:50%;
+  position:fixed;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:3000;
 }
 
 </style>
 </head>
 
 <body>
+
+<div id="progress-bar"></div>
+<div class="cursor"></div>
 
 <nav>
   <h2>AGF</h2>
@@ -103,10 +196,10 @@ nav a {
 </nav>
 
 <section class="hero">
-  <div>
+  <div class="hero-content">
     <h1>Transforming Lives</h1>
-    <p>Empowering Communities. Creating Hope.</p>
-    <button class="btn">Donate Now</button>
+    <p>Empowering communities through education, healthcare, and compassion.</p>
+    <button onclick="location.href='donate.html'" class="btn">Donate Now</button>
   </div>
 </section>
 
@@ -114,19 +207,71 @@ nav a {
   <h2>Our Impact</h2>
   <div class="cards">
     <div class="card">
-      <div class="counter">10K+</div>
+      <div class="counter" data-target="10000">0</div>
       <p>Meals Distributed</p>
     </div>
     <div class="card">
-      <div class="counter">2K+</div>
+      <div class="counter" data-target="2000">0</div>
       <p>Students Supported</p>
     </div>
     <div class="card">
-      <div class="counter">500+</div>
+      <div class="counter" data-target="500">0</div>
       <p>Health Camps</p>
     </div>
   </div>
 </section>
+
+<section class="cta">
+  <h2>Be the Reason Someone Smiles</h2>
+  <p>Your contribution can change lives today.</p>
+  <button onclick="location.href='donate.html'" class="btn">Donate Now</button>
+</section>
+
+<footer>
+  © 2026 Alka Gaur Foundation | All Rights Reserved
+</footer>
+
+<script>
+
+/* SCROLL PROGRESS */
+window.addEventListener("scroll", () => {
+  let scrollTop = document.documentElement.scrollTop;
+  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById("progress-bar").style.width = (scrollTop/height)*100 + "%";
+});
+
+/* PARALLAX */
+window.addEventListener("scroll", () => {
+  document.querySelector(".hero").style.backgroundPositionY =
+  window.scrollY * 0.5 + "px";
+});
+
+/* COUNTER ANIMATION */
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+  let update = () => {
+    let target = +counter.getAttribute('data-target');
+    let count = +counter.innerText;
+    let speed = target / 100;
+
+    if(count < target){
+      counter.innerText = Math.ceil(count + speed);
+      setTimeout(update, 20);
+    } else {
+      counter.innerText = target + "+";
+    }
+  };
+  update();
+});
+
+/* CUSTOM CURSOR */
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", e => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+</script>
 
 </body>
 </html>
