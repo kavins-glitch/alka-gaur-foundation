@@ -1,64 +1,216 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>About - Alka Gaur Foundation</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-body {background:#0a0a0a;color:white;font-family:Poppins;margin:0;}
-.section {padding:80px 10%;}
-h1 {color:#ffb347;}
 
+/* GLOBAL */
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body {
+  background:#0a0a0a;
+  color:white;
+  font-family:Poppins;
+}
+
+/* NAVBAR */
+nav {
+  position:fixed;
+  width:100%;
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(12px);
+  z-index:1000;
+}
+
+nav h2 {
+  font-weight:700;
+}
+
+nav a {
+  color:white;
+  text-decoration:none;
+  margin:0 15px;
+  transition:0.3s;
+}
+
+nav a:hover {
+  color:#ffb347;
+}
+
+/* SECTION */
+.section {
+  padding:120px 8% 80px;
+}
+
+h1 {
+  color:#ffb347;
+  margin-bottom:20px;
+}
+
+/* ABOUT TEXT */
+.about-text {
+  max-width:800px;
+  line-height:1.7;
+  opacity:0.9;
+}
+
+/* GRID */
 .grid {
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:40px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-top:40px;
 }
 
 .box {
   background:rgba(255,255,255,0.05);
   padding:30px;
-  border-radius:15px;
+  border-radius:20px;
+  transition:0.3s;
 }
+
+.box:hover {
+  transform:translateY(-10px);
+}
+
+/* TIMELINE */
+.timeline {
+  margin-top:50px;
+  border-left:2px solid #ffb347;
+  padding-left:20px;
+}
+
+.timeline div {
+  margin-bottom:20px;
+}
+
+/* BUTTONS */
+.btn {
+  padding:12px 25px;
+  background:linear-gradient(to right,#ff7a18,#ffb347);
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  margin:10px;
+}
+
+/* CTA */
+.cta {
+  text-align:center;
+  padding:80px 20px;
+  background:linear-gradient(to right,#ff7a18,#ffb347);
+}
+
+.cta h2 {
+  margin-bottom:20px;
+}
+
+/* FOOTER */
+footer {
+  padding:30px;
+  text-align:center;
+  background:#000;
+  font-size:14px;
+  opacity:0.7;
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
+<nav>
+  <h2>AGF</h2>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="donate.html">Donate</a>
+  </div>
+</nav>
+
+<!-- ABOUT -->
 <div class="section">
-<h1>About Us</h1>
-<p>
-We believe in compassion, education and empowerment to uplift underprivileged communities.
-</p>
+  <h1>About Us</h1>
+  <p class="about-text">
+    Alka Gaur Foundation is dedicated to transforming lives through compassion, education, healthcare, and empowerment. 
+    Our mission is to uplift underprivileged communities and create sustainable impact across society.
+  </p>
+
+  <!-- NAV BUTTONS -->
+  <div>
+    <button onclick="history.back()" class="btn">⬅ Back</button>
+    <button onclick="location.href='index.html'" class="btn">🏠 Home</button>
+  </div>
 </div>
 
+<!-- FOUNDER STORY -->
 <div class="section">
-<h1>Our Initiatives</h1>
+  <h1>Our Story</h1>
+  <p class="about-text">
+    What started as a small initiative to help a few families has grown into a powerful movement impacting thousands. 
+    Driven by compassion and purpose, the foundation continues to expand its reach and change lives every day.
+  </p>
 
-<div class="grid">
-
-<div class="box">
-<h3>🍛 Food & Nutrition</h3>
-<p>No one sleeps hungry.</p>
+  <div class="timeline">
+    <div><strong>2018:</strong> Foundation started</div>
+    <div><strong>2020:</strong> Expanded into healthcare camps</div>
+    <div><strong>2023:</strong> Reached 10,000+ beneficiaries</div>
+  </div>
 </div>
 
-<div class="box">
-<h3>📚 Education</h3>
-<p>Breaking poverty through learning.</p>
+<!-- INITIATIVES -->
+<div class="section">
+  <h1>Our Initiatives</h1>
+
+  <div class="grid">
+
+    <div class="box">
+      <h3>🍛 Food & Nutrition</h3>
+      <p>Providing meals to ensure no one sleeps hungry.</p>
+    </div>
+
+    <div class="box">
+      <h3>📚 Education</h3>
+      <p>Empowering children through access to quality education.</p>
+    </div>
+
+    <div class="box">
+      <h3>🏥 Healthcare</h3>
+      <p>Organizing free health camps and medical support.</p>
+    </div>
+
+    <div class="box">
+      <h3>👩 Women Empowerment</h3>
+      <p>Skill development and financial independence programs.</p>
+    </div>
+
+  </div>
 </div>
 
-<div class="box">
-<h3>🏥 Healthcare</h3>
-<p>Free camps & wellness support.</p>
+<!-- CTA -->
+<div class="cta">
+  <h2>Join Us in Making a Difference</h2>
+  <p>Your support can change lives.</p>
+  <button onclick="location.href='donate.html'" class="btn">Donate Now</button>
 </div>
 
-<div class="box">
-<h3>👩 Women Empowerment</h3>
-<p>Skill training & independence.</p>
-</div>
-
-</div>
-</div>
+<!-- FOOTER -->
+<footer>
+  © 2026 Alka Gaur Foundation | All Rights Reserved
+</footer>
 
 </body>
 </html>
