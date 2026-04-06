@@ -1,19 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Donate - Alka Gaur Foundation</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
+
+/* GLOBAL */
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 body {
   background:#0a0a0a;
   color:white;
   font-family:Poppins;
+}
+
+/* NAV */
+nav {
+  position:fixed;
+  width:100%;
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+}
+
+nav a {
+  color:white;
+  text-decoration:none;
+  margin:0 15px;
+}
+
+/* SECTION */
+.section {
+  padding:120px 8% 80px;
   text-align:center;
 }
 
+h1 {
+  color:#ffb347;
+  margin-bottom:20px;
+}
+
+/* DONATION OPTIONS */
+.amounts {
+  margin:30px 0;
+}
+
+.amount-btn {
+  padding:12px 25px;
+  margin:10px;
+  border-radius:30px;
+  border:none;
+  cursor:pointer;
+  background:rgba(255,255,255,0.1);
+  color:white;
+  transition:0.3s;
+}
+
+.amount-btn:hover {
+  background:#ffb347;
+}
+
+/* FORM */
 form {
-  max-width:400px;
-  margin:auto;
+  max-width:450px;
+  margin:30px auto;
   display:flex;
   flex-direction:column;
 }
@@ -23,31 +82,116 @@ input,textarea {
   padding:15px;
   border:none;
   border-radius:10px;
+  background:#111;
+  color:white;
 }
 
 button {
   padding:15px;
   background:linear-gradient(to right,#ff7a18,#ffb347);
   border:none;
-  border-radius:20px;
+  border-radius:30px;
+  cursor:pointer;
+  margin-top:10px;
 }
+
+/* TRUST */
+.trust {
+  margin-top:50px;
+  opacity:0.8;
+}
+
+/* CTA */
+.cta {
+  margin-top:80px;
+  padding:60px;
+  background:linear-gradient(to right,#ff7a18,#ffb347);
+}
+
+.cta h2 {
+  margin-bottom:15px;
+}
+
+/* FOOTER */
+footer {
+  padding:30px;
+  text-align:center;
+  background:#000;
+  font-size:14px;
+  opacity:0.7;
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>Support the Mission</h1>
+<!-- NAV -->
+<nav>
+  <h2>AGF</h2>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
 
+<!-- MAIN -->
+<div class="section">
+
+<h1>Support the Mission</h1>
+<p>Your donation helps provide food, education, and healthcare.</p>
+
+<!-- QUICK AMOUNTS -->
+<div class="amounts">
+  <button class="amount-btn" onclick="setAmount(500)">₹500</button>
+  <button class="amount-btn" onclick="setAmount(1000)">₹1000</button>
+  <button class="amount-btn" onclick="setAmount(2500)">₹2500</button>
+  <button class="amount-btn" onclick="setAmount(5000)">₹5000</button>
+</div>
+
+<!-- FORM -->
 <form>
-<input type="text" placeholder="Your Name">
-<input type="email" placeholder="Email">
-<input type="number" placeholder="Donation Amount">
-<textarea placeholder="Message"></textarea>
-<button>Donate Now</button>
+  <input type="text" placeholder="Your Name" required>
+  <input type="email" placeholder="Email" required>
+  <input id="amount" type="number" placeholder="Donation Amount" required>
+  <textarea placeholder="Message (optional)"></textarea>
+  <button type="submit">Donate Now</button>
 </form>
 
-<p>📍 Jaipur, Rajasthan</p>
-<p>📞 +91-9928388849</p>
+<!-- TRUST -->
+<div class="trust">
+  <p>📍 Jaipur, Rajasthan</p>
+  <p>📞 +91-9928388849</p>
+  <p>100% of your donation goes towards impact.</p>
+</div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Every Contribution Matters</h2>
+  <p>Even a small donation can change someone's life.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Alka Gaur Foundation | All Rights Reserved
+</footer>
+
+<script>
+
+/* SET AMOUNT */
+function setAmount(value){
+  document.getElementById("amount").value = value;
+}
+
+/* FORM PREVENT DEFAULT (TEMP) */
+document.querySelector("form").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Payment integration coming next 🚀");
+});
+
+</script>
 
 </body>
 </html>
