@@ -129,6 +129,8 @@ nav a:hover {
   border-radius:20px;
   backdrop-filter:blur(10px);
   transition:0.4s;
+  opacity:0;
+  transform:translateY(40px);
 }
 
 .card:hover {
@@ -221,6 +223,101 @@ footer {
   </div>
 </section>
 
+<section class="section">
+  <h2>What We Do</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>🍛 Food Distribution</h3>
+      <p>Providing meals to families in need across communities.</p>
+    </div>
+
+    <div class="card">
+      <h3>📚 Education Support</h3>
+      <p>Helping children access quality education and resources.</p>
+    </div>
+
+    <div class="card">
+      <h3>🏥 Health Camps</h3>
+      <p>Free medical checkups and healthcare initiatives.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Moments of Impact</h2>
+
+  <div class="cards">
+    <img src="https://images.unsplash.com/photo-1593113630400-ea4288922497" style="width:100%;border-radius:15px;">
+    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e" style="width:100%;border-radius:15px;">
+    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350" style="width:100%;border-radius:15px;">
+  </div>
+</section>
+
+<section class="section">
+  <h2>Voices of Change</h2>
+
+  <div class="cards">
+    <div class="card">
+      <p>"This foundation changed my life and gave me hope."</p>
+      <h4>- Beneficiary</h4>
+    </div>
+
+    <div class="card">
+      <p>"Proud to support such impactful work."</p>
+      <h4>- Volunteer</h4>
+    </div>
+
+    <div class="card">
+      <p>"Transparent and truly making a difference."</p>
+      <h4>- Donor</h4>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Follow Our Journey</h2>
+
+  <p>See real stories and impact on Instagram</p>
+
+  <button onclick="window.open('https://www.instagram.com/alkagaurfoundation','_blank')" class="btn">
+    View Instagram
+  </button>
+</section>
+
+<section class="section">
+  <h2>Why Your Help Matters</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>₹500</h3>
+      <p>Feeds a family for a week</p>
+    </div>
+
+    <div class="card">
+      <h3>₹1000</h3>
+      <p>Supports education for a child</p>
+    </div>
+
+    <div class="card">
+      <h3>₹2500</h3>
+      <p>Funds medical treatment</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Become a Volunteer</h2>
+
+  <p>Join us and make a real difference on the ground.</p>
+
+  <button onclick="location.href='donate.html'" class="btn">
+    Join Now
+  </button>
+</section>
+
+
+
 <section class="cta">
   <h2>Be the Reason Someone Smiles</h2>
   <p>Your contribution can change lives today.</p>
@@ -232,6 +329,23 @@ footer {
 </footer>
 
 <script>
+<script>
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+  cards.forEach(card => {
+    let position = card.getBoundingClientRect().top;
+    let screen = window.innerHeight;
+
+    if(position < screen - 100){
+      card.style.opacity = 1;
+      card.style.transform = "translateY(0)";
+    }
+  });
+});
+</script>
+
+
 
 /* SCROLL PROGRESS */
 window.addEventListener("scroll", () => {
