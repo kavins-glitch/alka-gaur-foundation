@@ -2,389 +2,2042 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Alka Gaur Foundation</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alka Gaur Foundation — Empowering Lives, Inspiring Change</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --saffron: #E8700A;
+    --saffron-light: #F5A623;
+    --saffron-pale: #FFF4E6;
+    --crimson: #C0392B;
+    --terracotta: #C1440E;
+    --gold: #D4A017;
+    --gold-light: #F0C040;
+    --ivory: #FDFAF4;
+    --warm-white: #FFF8F0;
+    --ink: #1A0F00;
+    --ink-soft: #3D2B10;
+    --text-body: #4A3728;
+    --text-muted: #8B6B4E;
+    --border: #E8D5B5;
+    --green: #2D6A4F;
+    --teal: #1B6B6B;
+    --section-gap: 100px;
+  }
 
-/* GLOBAL */
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-body {
-  font-family:'Poppins',sans-serif;
-  background:#0a0a0a;
-  color:white;
-  overflow-x:hidden;
-}
+  html { scroll-behavior: smooth; font-size: 16px; }
 
-/* SCROLL BAR */
-#progress-bar {
-  position:fixed;
-  top:0;
-  left:0;
-  height:4px;
-  width:0%;
-  background:linear-gradient(to right,#ff7a18,#ffb347);
-  z-index:2000;
-}
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ivory);
+    color: var(--text-body);
+    overflow-x: hidden;
+  }
 
-/* NAVBAR */
-nav {
-  position:fixed;
-  width:100%;
-  padding:20px 8%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(12px);
-  z-index:1000;
-}
+  /* ——— NAVIGATION ——— */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(253,250,244,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    transition: box-shadow 0.3s;
+  }
 
-nav h2 {
-  font-weight:700;
-  letter-spacing:2px;
-}
+  nav.scrolled { box-shadow: 0 4px 30px rgba(232,112,10,0.12); }
 
-nav a {
-  color:white;
-  text-decoration:none;
-  margin:0 15px;
-  transition:0.3s;
-}
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
 
-nav a:hover {
-  color:#ffb347;
-}
+  .nav-logo-emblem {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(232,112,10,0.4);
+  }
 
-/* HERO */
-.hero {
-  height:100vh;
-  background:url('https://images.unsplash.com/photo-1593113630400-ea4288922497') center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:0 10%;
-}
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
 
-.hero-content {
-  max-width:800px;
-}
+  .nav-logo-text span:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
 
-.hero h1 {
-  font-size:64px;
-  margin-bottom:20px;
-  background:linear-gradient(to right,#ff7a18,#ffb347);
-  -webkit-background-clip:text;
-  color:transparent;
-}
+  .nav-logo-text span:last-child {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--saffron);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
 
-.hero p {
-  font-size:18px;
-  margin-bottom:30px;
-  opacity:0.8;
-}
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
 
-.btn {
-  padding:15px 35px;
-  background:linear-gradient(to right,#ff7a18,#ffb347);
-  border:none;
-  border-radius:40px;
-  cursor:pointer;
-  font-size:16px;
-  transition:0.3s;
-}
+  .nav-links a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-body);
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+    position: relative;
+  }
 
-.btn:hover {
-  transform:scale(1.05);
-}
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0; right: 0;
+    height: 2px;
+    background: var(--saffron);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+  }
 
-/* SECTION */
-.section {
-  padding:100px 8%;
-  text-align:center;
-}
+  .nav-links a:hover { color: var(--saffron); }
+  .nav-links a:hover::after { transform: scaleX(1); }
 
-.section h2 {
-  font-size:36px;
-  margin-bottom:50px;
-}
+  .nav-donate-btn {
+    background: linear-gradient(135deg, var(--saffron), var(--terracotta));
+    color: white !important;
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.05em !important;
+    box-shadow: 0 4px 16px rgba(232,112,10,0.35);
+    transition: transform 0.2s, box-shadow 0.2s !important;
+  }
 
-/* CARDS */
-.cards {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-}
+  .nav-donate-btn::after { display: none !important; }
+  .nav-donate-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(232,112,10,0.45) !important; color: white !important; }
 
-.card {
-  background:rgba(255,255,255,0.05);
-  padding:40px 20px;
-  border-radius:20px;
-  backdrop-filter:blur(10px);
-  transition:0.4s;
-  opacity:0;
-  transform:translateY(40px);
-}
+  /* ——— HERO ——— */
+  #home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 40px 60px;
+  }
 
-.card:hover {
-  transform:translateY(-10px);
-}
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(232,112,10,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(212,160,23,0.07) 0%, transparent 55%),
+      linear-gradient(165deg, var(--warm-white) 0%, var(--ivory) 50%, #FFF0DC 100%);
+  }
 
-.counter {
-  font-size:42px;
-  color:#ffb347;
-  font-weight:600;
-}
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: 
+      repeating-linear-gradient(45deg, var(--saffron) 0, var(--saffron) 1px, transparent 0, transparent 50%),
+      repeating-linear-gradient(-45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
+    background-size: 40px 40px;
+  }
 
-/* CTA */
-.cta {
-  background:linear-gradient(to right,#ff7a18,#ffb347);
-  padding:80px 20px;
-  text-align:center;
-}
+  .hero-content {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    width: 100%;
+  }
 
-.cta h2 {
-  font-size:40px;
-  margin-bottom:20px;
-}
+  .hero-left { animation: fadeSlideUp 0.9s ease both; }
 
-.cta p {
-  margin-bottom:20px;
-}
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(232,112,10,0.1);
+    border: 1px solid rgba(232,112,10,0.25);
+    border-radius: 40px;
+    padding: 6px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 28px;
+  }
 
-/* FOOTER */
-footer {
-  padding:40px;
-  text-align:center;
-  background:#000;
-  font-size:14px;
-  opacity:0.7;
-}
+  .hero-badge::before { content: '●'; font-size: 8px; }
 
-/* CUSTOM CURSOR */
-.cursor {
-  width:20px;
-  height:20px;
-  border:2px solid white;
-  border-radius:50%;
-  position:fixed;
-  pointer-events:none;
-  transform:translate(-50%,-50%);
-  z-index:3000;
-}
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
 
+  h1 em {
+    font-style: italic;
+    color: var(--saffron);
+    font-weight: 300;
+  }
+
+  .hero-description {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-muted);
+    font-weight: 300;
+    max-width: 480px;
+    margin-bottom: 44px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--saffron), var(--terracotta));
+    color: white;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 30px rgba(232,112,10,0.35);
+    transition: all 0.3s;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(232,112,10,0.45); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--ink);
+    padding: 16px 30px;
+    border-radius: 50px;
+    border: 2px solid var(--border);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .btn-secondary:hover { border-color: var(--saffron); color: var(--saffron); }
+
+  .hero-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    animation: fadeSlideUp 0.9s 0.2s ease both;
+  }
+
+  .hero-stat-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px 24px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+  }
+
+  .hero-stat-card:hover { transform: translateY(-4px); }
+  .hero-stat-card:first-child { grid-column: span 2; background: linear-gradient(135deg, var(--saffron), var(--terracotta)); color: white; }
+
+  .hero-stat-card:first-child .stat-num,
+  .hero-stat-card:first-child .stat-label { color: white; }
+  .hero-stat-card:first-child .stat-icon { background: rgba(255,255,255,0.15); color: white; }
+
+  .stat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--saffron-pale);
+    color: var(--saffron);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .hero-certifications {
+    grid-column: span 2;
+    background: var(--ink);
+    border-radius: 20px;
+    padding: 20px 24px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cert-badge {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    padding: 5px 14px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  /* ——— SCROLL TICKER ——— */
+  .ticker {
+    background: var(--saffron);
+    color: white;
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .ticker-inner {
+    display: inline-flex;
+    animation: ticker 30s linear infinite;
+  }
+
+  .ticker-item {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0 50px;
+  }
+
+  .ticker-item::before { content: '✦  '; color: rgba(255,255,255,0.6); }
+
+  @keyframes ticker { to { transform: translateX(-50%); } }
+
+  /* ——— SECTIONS COMMON ——— */
+  section { padding: var(--section-gap) 40px; }
+
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--saffron);
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 4vw, 54px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+
+  h2 em { font-style: italic; color: var(--saffron); }
+
+  .section-lead {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 640px;
+    margin-bottom: 60px;
+  }
+
+  /* ——— ABOUT ——— */
+  #about { background: white; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-portrait {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: linear-gradient(165deg, var(--saffron-pale), #FFE8CC);
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--border);
+  }
+
+  .about-portrait-inner {
+    font-size: 120px;
+    opacity: 0.2;
+  }
+
+  .founder-card {
+    position: absolute;
+    bottom: -24px;
+    right: -24px;
+    background: white;
+    border-radius: 20px;
+    padding: 20px 24px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border: 1px solid var(--border);
+    min-width: 200px;
+  }
+
+  .founder-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .founder-card-title {
+    font-size: 12px;
+    color: var(--saffron);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .about-quote {
+    background: linear-gradient(135deg, var(--saffron-pale), white);
+    border-left: 4px solid var(--saffron);
+    border-radius: 0 16px 16px 0;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+  }
+
+  .about-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .about-quote cite {
+    display: block;
+    margin-top: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--saffron);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  .about-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .pillar {
+    background: var(--ivory);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.3s;
+  }
+
+  .pillar:hover { border-color: var(--saffron); background: var(--saffron-pale); }
+
+  .pillar-icon { font-size: 26px; margin-bottom: 10px; }
+  .pillar-title { font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 6px; }
+  .pillar-text { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ——— PROGRAMS ——— */
+  #programs { background: var(--ivory); }
+
+  .programs-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+    margin-bottom: 60px;
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .program-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: all 0.35s ease;
+    position: relative;
+    group: '';
+  }
+
+  .program-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+
+  .program-card-top {
+    padding: 36px 30px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .program-card-top::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    transition: opacity 0.3s;
+  }
+
+  .program-card:hover .program-card-top::before { opacity: 0.13; }
+
+  .prog-food .program-card-top { background: linear-gradient(135deg, #FFF4E6, #FFE8C8); }
+  .prog-food .program-card-top::before { background: var(--saffron); }
+  .prog-food .prog-icon-bg { background: rgba(232,112,10,0.12); color: var(--saffron); }
+
+  .prog-edu .program-card-top { background: linear-gradient(135deg, #E8F5E9, #C8E6CA); }
+  .prog-edu .program-card-top::before { background: var(--green); }
+  .prog-edu .prog-icon-bg { background: rgba(45,106,79,0.12); color: var(--green); }
+
+  .prog-health .program-card-top { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); }
+  .prog-health .program-card-top::before { background: #1565C0; }
+  .prog-health .prog-icon-bg { background: rgba(21,101,192,0.12); color: #1565C0; }
+
+  .prog-women .program-card-top { background: linear-gradient(135deg, #FCE4EC, #F8BBD0); }
+  .prog-women .program-card-top::before { background: #C2185B; }
+  .prog-women .prog-icon-bg { background: rgba(194,24,91,0.12); color: #C2185B; }
+
+  .prog-env .program-card-top { background: linear-gradient(135deg, #E8F5E9, #DCEDC8); }
+  .prog-env .program-card-top::before { background: #33691E; }
+  .prog-env .prog-icon-bg { background: rgba(51,105,30,0.12); color: #33691E; }
+
+  .prog-rehab .program-card-top { background: linear-gradient(135deg, #EDE7F6, #D1C4E9); }
+  .prog-rehab .program-card-top::before { background: #4527A0; }
+  .prog-rehab .prog-icon-bg { background: rgba(69,39,160,0.12); color: #4527A0; }
+
+  .prog-icon-bg {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  .prog-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+
+  .prog-subtitle {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 4px;
+  }
+
+  .program-card-body {
+    padding: 24px 30px 30px;
+  }
+
+  .prog-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .prog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .prog-tag {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: var(--ivory);
+    border: 1px solid var(--border);
+    color: var(--text-body);
+  }
+
+  /* ——— IMPACT ——— */
+  #impact {
+    background: var(--ink);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #impact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(232,112,10,0.12), transparent),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(212,160,23,0.08), transparent);
+  }
+
+  .impact-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 60px;
+  }
+
+  .impact-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--gold-light), var(--saffron-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  .impact-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .impact-icon { font-size: 32px; margin-bottom: 16px; opacity: 0.8; }
+
+  .impact-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.08);
+    position: absolute;
+    top: 0; bottom: 0;
+  }
+
+  #impact .section-eyebrow { color: var(--saffron-light); }
+  #impact .section-eyebrow::before { background: var(--saffron-light); }
+  #impact h2 { color: white; }
+  #impact .section-lead { color: rgba(255,255,255,0.6); }
+
+  .impact-story {
+    position: relative;
+    margin-top: 70px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 40px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .impact-story h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .impact-story p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .cert-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .cert-icon { font-size: 22px; }
+  .cert-text { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); }
+  .cert-sub { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+
+  /* ——— CAMPAIGNS ——— */
+  #campaigns { background: white; }
+
+  .campaigns-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 28px;
+  }
+
+  .campaign-card {
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 32px;
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+
+  .campaign-card:hover { transform: scale(1.01); }
+  .campaign-card.large { min-height: 380px; }
+
+  .campaign-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    z-index: 0;
+  }
+
+  .camp-food { background: linear-gradient(165deg, #FF6B35 0%, #E8700A 50%, #C1440E 100%); }
+  .camp-edu { background: linear-gradient(165deg, #2D6A4F 0%, #1B4332 100%); }
+  .camp-women { background: linear-gradient(165deg, #8B2FC9 0%, #6A1B9A 100%); }
+  .camp-cancer { background: linear-gradient(165deg, #C0392B 0%, #922B21 100%); }
+  .camp-env { background: linear-gradient(165deg, #388E3C 0%, #1B5E20 100%); }
+  .camp-rehab { background: linear-gradient(165deg, #1565C0 0%, #0D47A1 100%); }
+
+  .camp-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.07;
+    background-image: 
+      radial-gradient(circle, white 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .camp-content { position: relative; z-index: 1; }
+
+  .camp-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 30px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+
+  .camp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .camp-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ——— CSR ——— */
+  #csr { background: var(--ivory); }
+
+  .csr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .csr-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .csr-step {
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+
+  .csr-step:last-child { border-bottom: none; }
+  .csr-step:hover .csr-step-num { background: var(--saffron); color: white; }
+
+  .csr-step-num {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--saffron);
+    color: var(--saffron);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+
+  .csr-step-title { font-weight: 600; font-size: 16px; color: var(--ink); margin-bottom: 6px; }
+  .csr-step-text { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+  .csr-info {
+    background: white;
+    border-radius: 28px;
+    padding: 44px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+  }
+
+  .tax-badge {
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
+    border-radius: 20px;
+    padding: 28px;
+    color: white;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .tax-pct {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .tax-label { font-size: 14px; font-weight: 600; opacity: 0.85; margin-top: 6px; }
+
+  .csr-reasons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .csr-reason {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-body);
+  }
+
+  .csr-reason::before {
+    content: '✓';
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    background: linear-gradient(135deg, var(--saffron), var(--terracotta));
+    color: white;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ——— VOLUNTEER ——— */
+  #volunteer { background: white; }
+
+  .vol-ways {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 52px;
+  }
+
+  .vol-card {
+    text-align: center;
+    padding: 40px 24px;
+    border-radius: 24px;
+    border: 2px solid var(--border);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vol-card::before {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--saffron);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .vol-card:hover { border-color: var(--saffron); transform: translateY(-4px); box-shadow: 0 14px 40px rgba(232,112,10,0.12); }
+  .vol-card:hover::before { opacity: 0.06; }
+
+  .vol-icon { font-size: 42px; margin-bottom: 18px; display: block; }
+  .vol-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+  .vol-text { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+
+  /* ——— CONTACT ——— */
+  #contact { background: var(--ivory); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-info-card {
+    background: var(--ink);
+    border-radius: 28px;
+    padding: 44px;
+    color: white;
+    position: sticky;
+    top: 100px;
+  }
+
+  .contact-info-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .contact-info-card > p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+
+  .contact-detail {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+  }
+
+  .contact-detail-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 12px;
+    background: rgba(232,112,10,0.15);
+    color: var(--saffron-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .contact-detail-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+
+  .contact-detail-value {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+  }
+
+  .social-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  .social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .social-btn:hover { background: var(--saffron); border-color: var(--saffron); }
+
+  .contact-form {
+    background: white;
+    border-radius: 28px;
+    padding: 44px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.05);
+  }
+
+  .contact-form h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-body);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--ivory);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    resize: vertical;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--saffron);
+    box-shadow: 0 0 0 3px rgba(232,112,10,0.1);
+  }
+
+  textarea { min-height: 120px; }
+
+  .form-submit {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--saffron), var(--terracotta));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 6px 24px rgba(232,112,10,0.35);
+    letter-spacing: 0.03em;
+  }
+
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(232,112,10,0.45); }
+
+  /* ——— DONATE BANNER ——— */
+  .donate-banner {
+    background: linear-gradient(135deg, var(--saffron) 0%, var(--terracotta) 50%, var(--crimson) 100%);
+    padding: 80px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .donate-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .donate-banner-content { position: relative; }
+
+  .donate-banner h2 {
+    color: white;
+    font-size: clamp(36px, 5vw, 62px);
+    margin-bottom: 18px;
+  }
+
+  .donate-banner p {
+    color: rgba(255,255,255,0.8);
+    font-size: 18px;
+    font-weight: 300;
+    max-width: 560px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+
+  .donate-amounts {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .amount-btn {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .amount-btn:hover, .amount-btn.active {
+    background: white;
+    color: var(--saffron);
+    border-color: white;
+  }
+
+  .donate-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    color: var(--saffron);
+    padding: 18px 48px;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+    letter-spacing: 0.02em;
+  }
+
+  .donate-cta:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+
+  /* ——— FOOTER ——— */
+  footer {
+    background: #0D0800;
+    color: rgba(255,255,255,0.6);
+    padding: 60px 40px 30px;
+  }
+
+  .footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 32px;
+  }
+
+  .footer-logo { margin-bottom: 16px; }
+  .footer-desc { font-size: 13px; line-height: 1.75; margin-bottom: 24px; }
+
+  .footer-heading {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 18px;
+  }
+
+  .footer-links { display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--saffron-light); }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer-accent { color: var(--saffron-light); }
+
+  /* ——— ANIMATIONS ——— */
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ——— DECORATIVE DIVIDERS ——— */
+  .mandala-divider {
+    text-align: center;
+    color: var(--border);
+    font-size: 28px;
+    letter-spacing: 16px;
+    margin: 0;
+    padding: 40px 0;
+  }
+
+  /* ——— MOBILE NAV TOGGLE ——— */
+  .nav-toggle { display: none; }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .hero-content, .about-grid, .programs-grid, .contact-grid, .csr-grid, .footer-grid {
+      grid-template-columns: 1fr;
+    }
+    .impact-grid, .vol-ways { grid-template-columns: 1fr 1fr; }
+    .programs-grid { grid-template-columns: 1fr 1fr; }
+    .hero-right { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .campaigns-row { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
-
 <body>
 
-<div id="progress-bar"></div>
-<div class="cursor"></div>
-
-<nav>
-  <h2>AGF</h2>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="donate.html">Donate</a>
-  </div>
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-emblem">AG</div>
+    <div class="nav-logo-text">
+      <span>Alka Gaur Foundation</span>
+      <span>Empowering Lives · Jaipur</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#campaigns">Campaigns</a></li>
+    <li><a href="#csr">CSR</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#donate" class="nav-donate-btn">Donate Now</a></li>
+  </ul>
 </nav>
 
-<section class="hero">
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
   <div class="hero-content">
-    <h1>Transforming Lives</h1>
-    <p>Empowering communities through education, healthcare, and compassion.</p>
-    <button onclick="location.href='donate.html'" class="btn">Donate Now</button>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Our Impact</h2>
-  <div class="cards">
-    <div class="card">
-      <div class="counter" data-target="10000">0</div>
-      <p>Meals Distributed</p>
+    <div class="hero-left">
+      <div class="hero-badge">Est. Jaipur, Rajasthan · 12A & 80G Certified</div>
+      <h1>Empowering <em>Lives,</em><br>Inspiring <em>Change</em></h1>
+      <p class="hero-description">
+        A holistic non-profit dedicated to uplifting underprivileged communities through education, healthcare, food security, and women's empowerment across Rajasthan and beyond.
+      </p>
+      <div class="hero-ctas">
+        <a href="#donate" class="btn-primary">❤️ Donate Now</a>
+        <a href="#about" class="btn-secondary">Discover Our Work →</a>
+      </div>
     </div>
-    <div class="card">
-      <div class="counter" data-target="2000">0</div>
-      <p>Students Supported</p>
-    </div>
-    <div class="card">
-      <div class="counter" data-target="500">0</div>
-      <p>Health Camps</p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>What We Do</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>🍛 Food Distribution</h3>
-      <p>Providing meals to families in need across communities.</p>
-    </div>
-
-    <div class="card">
-      <h3>📚 Education Support</h3>
-      <p>Helping children access quality education and resources.</p>
-    </div>
-
-    <div class="card">
-      <h3>🏥 Health Camps</h3>
-      <p>Free medical checkups and healthcare initiatives.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Moments of Impact</h2>
-
-  <div class="cards">
-    <img src="https://images.unsplash.com/photo-1593113630400-ea4288922497" style="width:100%;border-radius:15px;">
-    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e" style="width:100%;border-radius:15px;">
-    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350" style="width:100%;border-radius:15px;">
-  </div>
-</section>
-
-<section class="section">
-  <h2>Voices of Change</h2>
-
-  <div class="cards">
-    <div class="card">
-      <p>"This foundation changed my life and gave me hope."</p>
-      <h4>- Beneficiary</h4>
-    </div>
-
-    <div class="card">
-      <p>"Proud to support such impactful work."</p>
-      <h4>- Volunteer</h4>
-    </div>
-
-    <div class="card">
-      <p>"Transparent and truly making a difference."</p>
-      <h4>- Donor</h4>
+    <div class="hero-right">
+      <div class="hero-stat-card">
+        <div class="stat-icon">🍽️</div>
+        <div class="stat-num">10,000+</div>
+        <div class="stat-label">Meals distributed through Food for All Campaign</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="stat-icon">📚</div>
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Students supported with education</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="stat-icon">🏥</div>
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Free health camps conducted</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="stat-icon">👩</div>
+        <div class="stat-num">300+</div>
+        <div class="stat-label">Women trained in livelihood skills</div>
+      </div>
+      <div class="hero-certifications">
+        <span class="cert-badge">12A Registered</span>
+        <span class="cert-badge">80G Certified</span>
+        <span class="cert-badge">NITI Aayog</span>
+        <span class="cert-badge">CSR-1</span>
+        <span class="cert-badge">ISO Certified</span>
+        <span class="cert-badge">50% Tax Exemption</span>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <h2>Follow Our Journey</h2>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Food for All Campaign</span>
+    <span class="ticker-item">Education for Every Child</span>
+    <span class="ticker-item">Women Empowerment</span>
+    <span class="ticker-item">Free Health Camps</span>
+    <span class="ticker-item">Cancer Care Support</span>
+    <span class="ticker-item">Skill Development</span>
+    <span class="ticker-item">Lok Kala Sangam 2026</span>
+    <span class="ticker-item">Rehabilitation Programs</span>
+    <span class="ticker-item">Tree Plantation Drives</span>
+    <span class="ticker-item">CSR Partnerships Welcome</span>
+    <!-- repeat -->
+    <span class="ticker-item">Food for All Campaign</span>
+    <span class="ticker-item">Education for Every Child</span>
+    <span class="ticker-item">Women Empowerment</span>
+    <span class="ticker-item">Free Health Camps</span>
+    <span class="ticker-item">Cancer Care Support</span>
+    <span class="ticker-item">Skill Development</span>
+    <span class="ticker-item">Lok Kala Sangam 2026</span>
+    <span class="ticker-item">Rehabilitation Programs</span>
+    <span class="ticker-item">Tree Plantation Drives</span>
+    <span class="ticker-item">CSR Partnerships Welcome</span>
+  </div>
+</div>
 
-  <p>See real stories and impact on Instagram</p>
-
-  <button onclick="window.open('https://www.instagram.com/alkagaurfoundation','_blank')" class="btn">
-    View Instagram
-  </button>
-</section>
-
-<section class="section">
-  <h2>Why Your Help Matters</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>₹500</h3>
-      <p>Feeds a family for a week</p>
-    </div>
-
-    <div class="card">
-      <h3>₹1000</h3>
-      <p>Supports education for a child</p>
-    </div>
-
-    <div class="card">
-      <h3>₹2500</h3>
-      <p>Funds medical treatment</p>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual fade-in">
+        <div class="about-portrait">
+          <div class="about-portrait-inner">👩‍⚕️</div>
+        </div>
+        <div class="founder-card">
+          <div class="founder-card-name">Dr. Alka Gaur</div>
+          <div class="founder-card-title">Founder & Visionary</div>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="section-eyebrow">About the Foundation</div>
+        <h2>A Vision Born from<br><em>Compassion</em></h2>
+        <div class="about-quote">
+          <p>"No woman should be allowed to compromise with her self-respect and dignity. Together, we can make a difference."</p>
+          <cite>— Dr. Alka Gaur, Founder</cite>
+        </div>
+        <p style="font-size:15px;line-height:1.85;color:var(--text-muted);margin-bottom:28px;font-weight:300;">
+          Dr. Alka Gaur is a distinguished medical professional, entrepreneur, and cultural visionary. When she founded the Alka Gaur Foundation, she faced skepticism — but her determination to serve the community never wavered. Today, the foundation operates with a holistic lifecycle approach that supports children, families, and communities for long-term, sustainable change across Rajasthan and beyond.
+        </p>
+        <p style="font-size:15px;line-height:1.85;color:var(--text-muted);margin-bottom:32px;font-weight:300;">
+          She is also the visionary behind the Jaipur Artist Festival and the acclaimed Lok Kala Sangam 2026, where master artisans from across Rajasthan showcased the soul of the state — with the gracious presence of Deputy Chief Minister Diya Kumari affirming government support.
+        </p>
+        <div class="about-pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🎯</div>
+            <div class="pillar-title">Mission</div>
+            <div class="pillar-text">Empower children, youth & women through education, healthcare & livelihood</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🌟</div>
+            <div class="pillar-title">Vision</div>
+            <div class="pillar-text">Build a society driven by equity, dignity, and sustainable opportunity</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">💡</div>
+            <div class="pillar-title">Philosophy</div>
+            <div class="pillar-text">Giving back to society through trust, humanity, and compassion</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🔬</div>
+            <div class="pillar-title">Methodology</div>
+            <div class="pillar-text">Deploy best-in-class technology for maximum social return on investment</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <h2>Become a Volunteer</h2>
-
-  <p>Join us and make a real difference on the ground.</p>
-
-  <button onclick="location.href='donate.html'" class="btn">
-    Join Now
-  </button>
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="section-inner">
+    <div class="programs-header">
+      <div class="fade-in">
+        <div class="section-eyebrow">What We Do</div>
+        <h2>Our Programs &<br><em>Focus Areas</em></h2>
+      </div>
+      <div class="fade-in">
+        <p class="section-lead" style="margin-bottom:0;">Six interconnected pillars of action that create holistic, lasting change for underprivileged communities — from the first meal to lifelong empowerment.</p>
+      </div>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card prog-food fade-in">
+        <div class="program-card-top">
+          <div class="prog-icon-bg">🍽️</div>
+          <div class="prog-subtitle">Pillar 01</div>
+          <div class="prog-title">Food & Nutrition</div>
+        </div>
+        <div class="program-card-body">
+          <p class="prog-desc">Ensuring no child, elderly person, or family sleeps hungry. Through our Food for All campaign, we distribute meals, ration kits, and nutritional essentials to thousands of beneficiaries across Jaipur.</p>
+          <div class="prog-tags">
+            <span class="prog-tag">Meal Distribution</span>
+            <span class="prog-tag">Ration Kits</span>
+            <span class="prog-tag">Nutrition Drives</span>
+            <span class="prog-tag">Hunger Relief</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-card prog-edu fade-in">
+        <div class="program-card-top">
+          <div class="prog-icon-bg">📚</div>
+          <div class="prog-subtitle">Pillar 02</div>
+          <div class="prog-title">Education</div>
+        </div>
+        <div class="program-card-body">
+          <p class="prog-desc">Breaking the cycle of poverty through knowledge. We provide books, scholarships, digital tools, and school infrastructure support while offering career guidance and digital literacy programs to underprivileged students.</p>
+          <div class="prog-tags">
+            <span class="prog-tag">Scholarships</span>
+            <span class="prog-tag">Digital Literacy</span>
+            <span class="prog-tag">School Infrastructure</span>
+            <span class="prog-tag">Career Guidance</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-card prog-health fade-in">
+        <div class="program-card-top">
+          <div class="prog-icon-bg">🏥</div>
+          <div class="prog-subtitle">Pillar 03</div>
+          <div class="prog-title">Healthcare & Wellness</div>
+        </div>
+        <div class="program-card-body">
+          <p class="prog-desc">Bringing quality healthcare to those who need it most. From free medical camps and dental check-ups to mental health initiatives and women's health programs — wellness is a right, not a privilege.</p>
+          <div class="prog-tags">
+            <span class="prog-tag">Free Medical Camps</span>
+            <span class="prog-tag">Dental Care</span>
+            <span class="prog-tag">Mental Health</span>
+            <span class="prog-tag">Women's Health</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-card prog-women fade-in">
+        <div class="program-card-top">
+          <div class="prog-icon-bg">👩‍💼</div>
+          <div class="prog-subtitle">Pillar 04</div>
+          <div class="prog-title">Women Empowerment</div>
+        </div>
+        <div class="program-card-body">
+          <p class="prog-desc">From skill development to entrepreneurship mentorship — we empower rural women to build independent livelihoods. Our vocational training programs cover tailoring, handicrafts, and business development.</p>
+          <div class="prog-tags">
+            <span class="prog-tag">Vocational Training</span>
+            <span class="prog-tag">Entrepreneurship</span>
+            <span class="prog-tag">Handicrafts</span>
+            <span class="prog-tag">Business Mentorship</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-card prog-env fade-in">
+        <div class="program-card-top">
+          <div class="prog-icon-bg">🌿</div>
+          <div class="prog-subtitle">Pillar 05</div>
+          <div class="prog-title">Environmental Sustainability</div>
+        </div>
+        <div class="program-card-body">
+          <p class="prog-desc">Protecting the planet for future generations through tree plantation drives, waste management awareness, and eco-friendly practice campaigns that engage communities and schools.</p>
+          <div class="prog-tags">
+            <span class="prog-tag">Tree Plantation</span>
+            <span class="prog-tag">Waste Management</span>
+            <span class="prog-tag">Eco Awareness</span>
+            <span class="prog-tag">Green Initiatives</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-card prog-rehab fade-in">
+        <div class="program-card-top">
+          <div class="prog-icon-bg">💜</div>
+          <div class="prog-subtitle">Pillar 06</div>
+          <div class="prog-title">Rehabilitation & Care</div>
+        </div>
+        <div class="program-card-body">
+          <p class="prog-desc">Rebuilding lives with care and compassion. Our rehabilitation programs provide dignified support, life coaching, and skill-building for mentally challenged women — and nutritional, emotional, and medical aid for cancer patients.</p>
+          <div class="prog-tags">
+            <span class="prog-tag">Cancer Care</span>
+            <span class="prog-tag">Life Coaching</span>
+            <span class="prog-tag">Disability Support</span>
+            <span class="prog-tag">Emotional Aid</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-
-<section class="cta">
-  <h2>Be the Reason Someone Smiles</h2>
-  <p>Your contribution can change lives today.</p>
-  <button onclick="location.href='donate.html'" class="btn">Donate Now</button>
+<!-- IMPACT -->
+<section id="impact">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="section-eyebrow">Our Impact</div>
+      <h2>Numbers That Tell<br><em>Stories of Hope</em></h2>
+      <p class="section-lead">Every statistic represents a real life changed, a family uplifted, and a community strengthened through the collective power of compassion and action.</p>
+    </div>
+    <div class="impact-grid">
+      <div class="fade-in" style="text-align:center;padding:20px 10px;">
+        <div class="impact-icon">🍽️</div>
+        <div class="impact-num">10K+</div>
+        <div class="impact-desc">Meals distributed across Jaipur & nearby communities</div>
+      </div>
+      <div class="fade-in" style="text-align:center;padding:20px 10px;">
+        <div class="impact-icon">📖</div>
+        <div class="impact-num">500+</div>
+        <div class="impact-desc">Students supported with education, books & digital tools</div>
+      </div>
+      <div class="fade-in" style="text-align:center;padding:20px 10px;">
+        <div class="impact-icon">🏥</div>
+        <div class="impact-num">50+</div>
+        <div class="impact-desc">Health camps & dental check-up drives conducted</div>
+      </div>
+      <div class="fade-in" style="text-align:center;padding:20px 10px;">
+        <div class="impact-icon">👩‍🎨</div>
+        <div class="impact-num">300+</div>
+        <div class="impact-desc">Women trained in vocational & livelihood skills</div>
+      </div>
+    </div>
+    <div class="impact-story fade-in">
+      <div>
+        <h3>Lok Kala Sangam 2026 — Celebrating Rajasthan's Living Heritage</h3>
+        <p>In 2026, the Alka Gaur Foundation proudly hosted Lok Kala Sangam — a landmark event that brought master artisans from across Rajasthan together, showcasing traditional sculptures, handcrafted wooden artifacts, and the rich indigenous art forms of the state. The event was graced by Deputy Chief Minister Diya Kumari, reaffirming government support for women-led social initiatives and sustainable livelihoods.</p>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-item">
+          <div class="cert-icon">📋</div>
+          <div>
+            <div class="cert-text">12AB & 80G</div>
+            <div class="cert-sub">Registered · 50% Tax Exemption</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">🏛️</div>
+          <div>
+            <div class="cert-text">NITI Aayog</div>
+            <div class="cert-sub">Registered NGO</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">🤝</div>
+          <div>
+            <div class="cert-text">CSR-1 Registered</div>
+            <div class="cert-sub">Corporate Partnership Ready</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">🏆</div>
+          <div>
+            <div class="cert-text">ISO Certified</div>
+            <div class="cert-sub">Quality Assured Operations</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- CAMPAIGNS -->
+<section id="campaigns">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="section-eyebrow">Active Campaigns</div>
+      <h2>Initiatives Making<br><em>Real Difference</em></h2>
+      <p class="section-lead">Each campaign is designed to address a specific need — urgent, structural, and transformative.</p>
+    </div>
+    <div class="campaigns-row fade-in">
+      <div class="campaign-card camp-food large">
+        <div class="camp-pattern"></div>
+        <div class="camp-content">
+          <span class="camp-tag">Flagship Campaign</span>
+          <div class="camp-title">Food for All — Nourishing Lives, One Meal at a Time</div>
+          <p class="camp-desc">Fighting hunger and spreading dignity. We distribute meals, ration kits, and essential nutrition to children, elderly, and low-income families across Jaipur.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;">
+        <div class="campaign-card camp-edu">
+          <div class="camp-pattern"></div>
+          <div class="camp-content">
+            <span class="camp-tag">Education</span>
+            <div class="camp-title">Education for All</div>
+            <p class="camp-desc">Supporting BPL and underserved students with books, scholarships, and digital literacy tools.</p>
+          </div>
+        </div>
+        <div class="campaign-card camp-women">
+          <div class="camp-pattern"></div>
+          <div class="camp-content">
+            <span class="camp-tag">Empowerment</span>
+            <div class="camp-title">Women Skilling Programs</div>
+            <p class="camp-desc">Empowering rural women through tailoring, handicrafts, and employment-linked vocational training.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="campaigns-row fade-in">
+      <div class="campaign-card camp-cancer">
+        <div class="camp-pattern"></div>
+        <div class="camp-content">
+          <span class="camp-tag">Healthcare</span>
+          <div class="camp-title">Cancer Care Support</div>
+          <p class="camp-desc">Providing nutritional, emotional, and medical aid to cancer patients and their families throughout their journey.</p>
+        </div>
+      </div>
+      <div class="campaign-card camp-rehab">
+        <div class="camp-pattern"></div>
+        <div class="camp-content">
+          <span class="camp-tag">Rehabilitation</span>
+          <div class="camp-title">Rebuilding Lives with Compassion</div>
+          <p class="camp-desc">Dignified rehabilitation and life coaching programs for mentally challenged women — restoring confidence and capability.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSR -->
+<section id="csr">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="section-eyebrow">Corporate Social Responsibility</div>
+      <h2>Partner With Us for<br><em>Meaningful Impact</em></h2>
+    </div>
+    <div class="csr-grid fade-in">
+      <div class="csr-steps">
+        <div class="csr-step">
+          <div class="csr-step-num">1</div>
+          <div>
+            <div class="csr-step-title">Connect & Explore</div>
+            <p class="csr-step-text">Reach out to our team to explore alignment between your CSR goals and our high-impact programs across education, health, food security, and women empowerment.</p>
+          </div>
+        </div>
+        <div class="csr-step">
+          <div class="csr-step-num">2</div>
+          <div>
+            <div class="csr-step-title">Design Your Initiative</div>
+            <p class="csr-step-text">Co-create a tailored program — whether it's a skill development workshop, health camp, scholarship fund, or environmental initiative — mapped to your brand values.</p>
+          </div>
+        </div>
+        <div class="csr-step">
+          <div class="csr-step-num">3</div>
+          <div>
+            <div class="csr-step-title">Deploy & Measure</div>
+            <p class="csr-step-text">We execute with transparency and rigor, using technology to track social return on investment. Receive regular impact reports and documentation for compliance.</p>
+          </div>
+        </div>
+        <div class="csr-step">
+          <div class="csr-step-num">4</div>
+          <div>
+            <div class="csr-step-title">Celebrate Impact Together</div>
+            <p class="csr-step-text">Share the story of your impact with stakeholders, employees, and the public. Real impact creates real pride — and real loyalty.</p>
+          </div>
+        </div>
+      </div>
+      <div class="csr-info">
+        <div class="tax-badge">
+          <div class="tax-pct">50%</div>
+          <div class="tax-label">Tax Exemption on All Donations Under Section 80G</div>
+        </div>
+        <div class="csr-reasons">
+          <div class="csr-reason">CSR-1 registered — eligible for Schedule VII CSR spending</div>
+          <div class="csr-reason">12A & 80G certified — donors receive 50% tax rebate</div>
+          <div class="csr-reason">NITI Aayog registered NGO with verified credibility</div>
+          <div class="csr-reason">ISO certified for quality assurance in operations</div>
+          <div class="csr-reason">Transparent impact reporting & documentation provided</div>
+          <div class="csr-reason">Multi-sector coverage: education, health, food, women, environment</div>
+          <div class="csr-reason">Scalable programs deployable across Rajasthan & beyond</div>
+          <div class="csr-reason">Employee volunteering & engagement opportunities available</div>
+        </div>
+        <br>
+        <a href="#contact" class="btn-primary" style="display:inline-flex;width:100%;justify-content:center;border-radius:12px;margin-top:8px;">
+          📩 Discuss CSR Partnership
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section id="volunteer">
+  <div class="section-inner">
+    <div class="fade-in" style="text-align:center;max-width:700px;margin:0 auto 0;">
+      <div class="section-eyebrow" style="justify-content:center;">Get Involved</div>
+      <h2>Many Ways to<br><em>Make a Difference</em></h2>
+      <p class="section-lead" style="margin:0 auto 0;">Whether you have time, talent, or treasure — there is a place for you in our mission to create a more equitable Rajasthan.</p>
+    </div>
+    <div class="vol-ways fade-in">
+      <div class="vol-card">
+        <span class="vol-icon">💰</span>
+        <div class="vol-title">Donate</div>
+        <p class="vol-text">Fund programs directly. Every rupee goes toward food, education, healthcare, or skills training for someone in need. 50% tax exemption available.</p>
+      </div>
+      <div class="vol-card">
+        <span class="vol-icon">🙌</span>
+        <div class="vol-title">Volunteer</div>
+        <p class="vol-text">Join our on-ground teams for health camps, education drives, and community events. Your skills and time are invaluable assets to the mission.</p>
+      </div>
+      <div class="vol-card">
+        <span class="vol-icon">🤝</span>
+        <div class="vol-title">Partner (CSR)</div>
+        <p class="vol-text">Companies can channel CSR funds through our verified, high-impact programs. We handle compliance, reporting, and execution end-to-end.</p>
+      </div>
+      <div class="vol-card">
+        <span class="vol-icon">📣</span>
+        <div class="vol-title">Spread Awareness</div>
+        <p class="vol-text">Share our work on social media, host awareness events, or invite us to speak at your organization. Every voice amplifies our reach.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE BANNER -->
+<div class="donate-banner" id="donate">
+  <div class="donate-banner-content">
+    <h2>Every Penny is a<br><em>Lifeline</em></h2>
+    <p>Your donation today is a beacon of hope in someone's darkest hour. Join us in making a difference, one heart at a time.</p>
+    <div class="donate-amounts">
+      <button class="amount-btn">₹500</button>
+      <button class="amount-btn active">₹1,000</button>
+      <button class="amount-btn">₹2,500</button>
+      <button class="amount-btn">₹5,000</button>
+      <button class="amount-btn">Custom</button>
+    </div>
+    <a href="mailto:alkagaurfoundation2020@gmail.com?subject=Donation to Alka Gaur Foundation" class="donate-cta">
+      ❤️ Donate Now · Get 50% Tax Rebate
+    </a>
+    <p style="margin-top:18px;font-size:12px;opacity:0.55;">Registered under 12A & 80G · All donations tax-exempt · Receipts provided</p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="section-eyebrow">Get in Touch</div>
+      <h2>Reach Out &<br><em>Connect With Us</em></h2>
+    </div>
+    <div class="contact-grid fade-in">
+      <div class="contact-info-card">
+        <h3>Alka Gaur Foundation</h3>
+        <p>We'd love to hear from you — whether you want to donate, volunteer, partner for CSR, or simply learn more about our work.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div>
+            <div class="contact-detail-label">Address</div>
+            <div class="contact-detail-value">Plot No B-136, Kirti Nagar,<br>Tonk Road, Jaipur,<br>Rajasthan – 302015</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-value">+91-9414117349<br>+91-9928388849</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value">alkagaurfoundation2020@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🌐</div>
+          <div>
+            <div class="contact-detail-label">Website</div>
+            <div class="contact-detail-value">alkagaurfoundation.com</div>
+          </div>
+        </div>
+        <div class="social-row">
+          <a href="https://www.instagram.com/alkagaurfoundation/" class="social-btn" title="Instagram">📸</a>
+          <a href="https://in.linkedin.com/in/alka-gaur-a27ba1252" class="social-btn" title="LinkedIn">💼</a>
+          <a href="https://www.facebook.com/alka.gaur.9026/" class="social-btn" title="Facebook">👥</a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" placeholder="Your first name">
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" placeholder="Your last name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="purpose">Purpose of Contact</label>
+          <select id="purpose">
+            <option value="">Select a purpose…</option>
+            <option>Donation Enquiry</option>
+            <option>CSR Partnership</option>
+            <option>Volunteering</option>
+            <option>Program Information</option>
+            <option>Media / Press</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="org">Organisation (Optional)</label>
+          <input type="text" id="org" placeholder="Your company or organisation">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell us how you'd like to get involved or what you'd like to know…"></textarea>
+        </div>
+        <button class="form-submit" onclick="handleSubmit()">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  © 2026 Alka Gaur Foundation | All Rights Reserved
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">
+        <div class="nav-logo" style="gap:12px;display:flex;align-items:center;">
+          <div class="nav-logo-emblem" style="width:40px;height:40px;font-size:17px;">AG</div>
+          <div class="nav-logo-text">
+            <span style="color:rgba(255,255,255,0.9);font-size:17px;font-family:'Cormorant Garamond',serif;font-weight:700;">Alka Gaur Foundation</span>
+            <span style="color:var(--saffron-light);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;">Empowering Lives · Inspiring Change</span>
+          </div>
+        </div>
+      </div>
+      <p class="footer-desc">
+        A Jaipur-based non-profit dedicated to uplifting underprivileged communities through education, healthcare, food security, and women's empowerment. Registered, certified, and committed to transparent impact.
+      </p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);padding:4px 12px;border-radius:20px;font-size:11px;">12A & 80G</span>
+        <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);padding:4px 12px;border-radius:20px;font-size:11px;">NITI Aayog</span>
+        <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);padding:4px 12px;border-radius:20px;font-size:11px;">CSR-1</span>
+        <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);padding:4px 12px;border-radius:20px;font-size:11px;">ISO Certified</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Navigation</div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#programs">Our Programs</a>
+        <a href="#impact">Our Impact</a>
+        <a href="#campaigns">Campaigns</a>
+        <a href="#csr">CSR</a>
+        <a href="#volunteer">Volunteer</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Programs</div>
+      <div class="footer-links">
+        <a href="#programs">Food & Nutrition</a>
+        <a href="#programs">Education</a>
+        <a href="#programs">Healthcare</a>
+        <a href="#programs">Women Empowerment</a>
+        <a href="#programs">Environment</a>
+        <a href="#programs">Rehabilitation</a>
+        <a href="#campaigns">Cancer Care</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <div class="footer-links">
+        <a href="tel:+919414117349">+91-9414117349</a>
+        <a href="tel:+919928388849">+91-9928388849</a>
+        <a href="mailto:alkagaurfoundation2020@gmail.com">Email Us</a>
+        <a href="https://alkagaurfoundation.com">Website</a>
+        <a href="https://www.instagram.com/alkagaurfoundation/">Instagram</a>
+        <a href="https://in.linkedin.com/in/alka-gaur-a27ba1252">LinkedIn</a>
+      </div>
+      <div style="margin-top:24px;padding:16px;background:rgba(232,112,10,0.1);border-radius:12px;border:1px solid rgba(232,112,10,0.2);">
+        <div style="font-size:11px;color:var(--saffron-light);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Address</div>
+        <div style="font-size:12px;line-height:1.6;color:rgba(255,255,255,0.5);">Plot B-136, Kirti Nagar,<br>Tonk Road, Jaipur,<br>Rajasthan – 302015</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Alka Gaur Foundation. All rights reserved. <span class="footer-accent">Made with ❤️ in Jaipur.</span></span>
+    <span>Service Towards Society · <span class="footer-accent">Together, We Make a Difference.</span></span>
+  </div>
 </footer>
 
 <script>
-const cards = document.querySelectorAll('.card');
-
-window.addEventListener('scroll', () => {
-  cards.forEach(card => {
-    let position = card.getBoundingClientRect().top;
-    let screen = window.innerHeight;
-
-    if(position < screen - 100){
-      card.style.opacity = 1;
-      card.style.transform = "translateY(0)";
-    }
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.classList.toggle('scrolled', window.scrollY > 20);
   });
-});
+
+  // Intersection Observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Donate amount buttons
+  document.querySelectorAll('.amount-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // Counter animation
+  function animateCounter(el, target, suffix = '') {
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = Math.floor(current).toLocaleString() + suffix;
+      if (current >= target) clearInterval(timer);
+    }, 16);
+  }
+
+  // Form submit handler
+  function handleSubmit() {
+    const btn = document.querySelector('.form-submit');
+    btn.textContent = '✓ Message Sent! We\'ll be in touch soon.';
+    btn.style.background = 'linear-gradient(135deg, #2D6A4F, #1B4332)';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 4000);
+  }
 </script>
-
-
-<script>
-/* SCROLL PROGRESS */
-window.addEventListener("scroll", () => {
-  let scrollTop = document.documentElement.scrollTop;
-  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  document.getElementById("progress-bar").style.width = (scrollTop/height)*100 + "%";
-});
-
-/* PARALLAX */
-window.addEventListener("scroll", () => {
-  document.querySelector(".hero").style.backgroundPositionY =
-  window.scrollY * 0.5 + "px";
-});
-
-/* COUNTER ANIMATION */
-const counters = document.querySelectorAll('.counter');
-counters.forEach(counter => {
-  let update = () => {
-    let target = +counter.getAttribute('data-target');
-    let count = +counter.innerText;
-    let speed = target / 100;
-
-    if(count < target){
-      counter.innerText = Math.ceil(count + speed);
-      setTimeout(update, 20);
-    } else {
-      counter.innerText = target + "+";
-    }
-  };
-  update();
-});
-
-/* CUSTOM CURSOR */
-const cursor = document.querySelector(".cursor");
-document.addEventListener("mousemove", e => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
-});
-
-</script>
-
 </body>
 </html>
